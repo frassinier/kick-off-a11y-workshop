@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Kick Off - a11y workshop</title>
+		<link rel="stylesheet" href="http://talend.surge.sh/theme/dist/bootstrap.css" media="screen">
+		<style type="text/css">
+			*:focus {
+			border: 1px solid cyan;
+			}
+			body { 
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background-color:  #737373;
+			}
+			.box {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			height: 75vh;
+			width: 25vw;
+			background-color: white;
+			}
+			.box__header {
+			position: relative;
+			display: flex;
+			padding: 20px;
+			color:  #202020;
+			font-size: 13px;
+			font-weight: 600;
+			border-bottom: 1px solid #c2c2c2;
+			}
+			.box__header:before,
+			.box__header:after {
+			position: absolute;
+			content: '';
+			top: 0;
+			bottom: -1px;
+			background: white;
+			border-bottom: 1px solid #c2c2c2;
+			}
+			.box__header:before {
+			left: -1px;
+			width: 1px;
+			}
+			.box__header:after {
+			left: 100%;
+			width: 4px;
+			}
+			.box__header .box__header-close {
+			margin-left: auto;
+			order: 1;
+			}
+			.box__body {
+			flex: 1;
+			background-color:  #e6e6e6;
+			order: 2;
+			}
+			.box__body table {
+			width: 100%;
+			color:  #333333;
+			}
+			.box__body td {
+			padding: 10px 20px;
+			border-bottom: 1px solid #c2c2c2;
+			color:  #202020;
+			font-size: 11px;
+			background-color: #f7f7f7;
+			}
+			.box__body td.title svg {
+			padding-right: 30px;
+			margin-bottom: -3px;
+			}
+			.box__body td.title label {
+			color:  #c0c0c0;
+			font-size: 11px;
+			letter-spacing: 0.11px;
+			}
+			.box__body td + td {
+			width: 30px;
+			text-align: right;
+			}
+			.box__body tr td + td svg {
+			display: none;
+			}
+			.box__body tr:hover td + td svg {
+			display: block;
+			}
+			.box__footer {
+			display: flex;
+			justify-content: space-between;
+			padding: 8px 20px 7px 23px;
+			margin-top: auto;
+			background-color:  #dcdbdb;
+			order: 3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box__header">
+				User list that is in the Dataset of ...
+				<div class="box__header-close"
+					role="button" 
+					tabindex="0">
+					<svg class="btn btn-link" width="13px" height="13px" viewBox="0 0 13 13">
+						<image x="0" y="0" width="13" height="13" opacity="0.10" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAQAAADY4iz3AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABxSURBVBjTfZCxDYAwEAMvrEHjIoPQIIUZWDaDIIUimSMUIYQv4Kt/W/ZbRruSPGbklbQ7JURhOY9BEJk5J1YKM7Erb6KwNnlWVZa3e/duQHgTztgA9m8jg6qqqkJHflSTSbXZtJ8J3aO4bcb90wbfHV6hvERODWAWLgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0xMC0wNVQwOTozOTowNiswMDowMIEs9cYAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMTAtMDVUMDk6Mzk6MDYrMDA6MDDwcU16AAAAAElFTkSuQmCC" />
+					</svg>
+				</div>
+			</div>
+			<div class="box__footer">
+				<span class="btn btn-default">CANCEL</span>
+				<span class="btn btn-info">CREATE</span>
+			</div>
+			<div class="box__body">
+				<table>
+					<tr>
+						<td class="title">
+							<svg width="16px" height="16px" viewBox="0 0 16 16">
+								<image x="0" y="0" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAaVBMVEUAAABpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKVpsKX///9R5H9iAAAAIXRSTlMAN5/g/uGgOguk8IU4FqYMybQRywMKnvcBEzYiolsXksVjQ6LxAAAAAWJLR0QiXWVcrAAAAJlJREFUGNNVj9sSgyAMRFdKRBRUvGC9m///yULtqD1P2c1mZwIEEvGSTKnCSabzwlhrirysvrp2zblpXBsd7Tr0fhh8j86V4T4Pe88BHzK5giiA9xCNIcSLFGSehiFIi/sElsEjMM2xdJ6AUYJUvzCt27YSL70ipPvBF8cuoPiPBCifWofiqr11ncUXqiujs9+/KiWWJJI4fwB5fRB54FWTcgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0xMC0wNVQxMDoxMzowMyswMDowMIbAGPcAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMTAtMDVUMTA6MTM6MDMrMDA6MDD3naBLAAAAAElFTkSuQmCC" />
+							</svg>
+							Marco Polo
+						</td>
+						<td>
+							<svg class="btn btn-link trash-icon" width="14px" height="17px" viewBox="0 0 14 17">
+								<image x="0" y="0" width="14" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAARCAQAAABHwVUUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABWSURBVBjT5c2xDYAwDAXRczAVygZM5IGzECxAnVhKAaKAmAW48j9ZFu6sMQHgRc9FbOG4xmc1IQHBLGA5YBcAW9EXtbIrWGYbXkqC8CeJj/6EFR+IQwfCZw34ErT1UwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0xMC0wNVQxMDowNTozOCswMDowMMbY5GkAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMTAtMDVUMTA6MDU6MzgrMDA6MDC3hVzVAAAAAElFTkSuQmCC" />
+							</svg>
+						</td>
+					</tr>
+					<tr>
+						<td class="title">
+							<svg width="16px" height="16px" viewBox="0 0 16 16">
+								<path d="M 8 16C 3.6 16-0 12.4-0 8-0 3.6 3.6 0 8 0 12.4 0 16 3.6 16 8 16 12.4 12.4 16 8 16ZM 8 1C 4.1 1 1 4.1 1 8 1 8.6 1.1 9.1 1.2 9.7 1.8 9.2 2.4 8.8 3 8.5 2.4 8 2 7.3 2 6.5 2 5.1 3.1 4 4.5 4 5.1 4 5.6 4.2 6 4.5 4.8 5.2 4 6.5 4 8 4 8.6 4.2 9.2 4.4 9.8 3.5 10.2 2.7 10.8 1.9 11.5 2 11.8 2.2 12 2.4 12.3 3.2 11.6 4 11 5 10.6 5.7 11.5 6.8 12 8 12 9.2 12 10.3 11.4 10.9 10.6 11.9 11 12.8 11.6 13.5 12.3 13.8 12 13.9 11.7 14.1 11.4 13.3 10.7 12.5 10.1 11.6 9.7 11.8 9.2 12 8.6 12 8 12 6.5 11.2 5.2 10 4.5 10.4 4.2 10.9 4 11.5 4 12.9 4 14 5.1 14 6.5 14 7.3 13.6 8 13 8.5 13.6 8.9 14.2 9.3 14.8 9.7 14.9 9.1 15 8.6 15 8 15 4.1 11.9 1 8 1ZM 11 8C 11 9.66 9.66 11 8 11 6.34 11 5 9.66 5 8 5 6.34 6.34 5 8 5 9.66 5 11 6.34 11 8Z" fill="rgb(167,153,94)"/>
+							</svg>
+							<label>Group</label>
+							Talend R&D
+						</td>
+						<td>
+							<svg class="btn btn-link trash-icon" width="14px" height="17px" viewBox="0 0 14 17">
+								<image x="0" y="0" width="14" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAARCAQAAABHwVUUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAABWSURBVBjT5c2xDYAwDAXRczAVygZM5IGzECxAnVhKAaKAmAW48j9ZFu6sMQHgRc9FbOG4xmc1IQHBLGA5YBcAW9EXtbIrWGYbXkqC8CeJj/6EFR+IQwfCZw34ErT1UwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0xMC0wNVQxMDowNTozOCswMDowMMbY5GkAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMTAtMDVUMTA6MDU6MzgrMDA6MDC3hVzVAAAAAElFTkSuQmCC" />
+							</svg>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
